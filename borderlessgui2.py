@@ -140,7 +140,7 @@ def make_borderless(hwnd):
         SCREEN_WIDTH = user32.GetSystemMetrics(0)
         SCREEN_HEIGHT = user32.GetSystemMetrics(1)
 
-        X_POS = (SCREEN_WIDTH - TARGET_WIDTH) // 2
+        X_POS = (SCREEN_WIDTH - target_width) // 2
         Y_POS = 0
 
         win32gui.SetWindowPos(
@@ -148,8 +148,8 @@ def make_borderless(hwnd):
             None,
             X_POS,
             Y_POS,
-            TARGET_WIDTH,
-            TARGET_HEIGHT,
+            target_width,
+            target_height,
             win32con.SWP_FRAMECHANGED | win32con.SWP_NOZORDER | win32con.SWP_SHOWWINDOW,
         )
 
