@@ -4,27 +4,43 @@ import win32con
 import win32process
 import psutil
 import ctypes
+import logging
 from ttkbootstrap import Style
 import tkinter as tk
 from tkinter import ttk
 
+# Introduce logging features
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("border_terminator.log", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
+
 user32 = ctypes.windll.user32
 
 # Set target resolution (change to match your monitor)
+# Make this a user-selectable option (with restrictions for 16:9, 32:9 etc)
 TARGET_WIDTH = 2560
 TARGET_HEIGHT = 1440
 
 def list_running_apps():
     """Returns a list of currently running applications with visible windows."""
+    logging.info("Scanning for applications...")
     apps = []
 
     def callback(hwnd, extra):
         if win32gui.IsWindowVisible(hwnd):  # Only include visible windows
             title = win32gui.GetWindowText(hwnd).strip()
             if title:
-                pid = win32process.GetWindowThreadProcessId(hwnd)[1]
-                process_name = psutil.Process(pid).name() if pid else "Unknown Process"
-                apps.append((title, process_name, hwnd))  # Store title, process name, and handle
+                try:
+                    pid = win32process.GetWindowThreadProcessId(hwnd)[1]
+                    process_name = psutil.Process(pid).name() if pid else "Unknown Process"
+                    apps.append((title, process_name, hwnd))  # Store title, process name, and handle
+                except (psutil.NoSuchProcess, psutil.AccessDenied):
+                    pass
 
     win32gui.EnumWindows(callback, None)
 
@@ -34,43 +50,75 @@ def list_running_apps():
         if process not in unique_apps:
             unique_apps[process] = (title, process, hwnd)
 
+    logging.info(f"Found {len(unique_apps)} unique applications.")
     return list(unique_apps.values())
 
 def find_window_by_process(process_name):
     """Finds the first window handle for the given process name."""
+    logging.info(f"Looking for window with process name: {process_name}")
     for title, process, hwnd in list_running_apps():
         if process.lower() == process_name.lower():
+            logging.info(f"Found window handle {hwnd} for process '{process_name}'")
             return hwnd
+    logging.warning(f"No window found for process '{process_name}'")
     return None
 
 def make_borderless(hwnd):
     """Remove the title bar and borders from the selected window."""
     if not hwnd:
-        status_label.config(text="❌ Window handle invalid!")
+        logging.error("❌ Window handle is invalid!")
+        status_label.config(text="Window handle invalid!")
         return
+    try:
+        logging.info(f"Attempting to apply borderless mode to hwnd: {hwnd}")
 
-    style = win32gui.GetWindowLong(hwnd, win32con.GWL_STYLE)
-    new_style = style & ~(win32con.WS_CAPTION | win32con.WS_THICKFRAME)
-    win32gui.SetWindowLong(hwnd, win32con.GWL_STYLE, new_style)
+        original_style = win32gui.GetWindowLong(hwnd, win32con.GWL_STYLE)
+        new_style = original_style & ~(win32con.WS_CAPTION | win32con.WS_THICKFRAME)
+        win32gui.SetWindowLong(hwnd, win32con.GWL_STYLE, new_style)
+        confirmed_style = win32gui.GetWindowLong(hwnd, win32con.GWL_STYLE)
 
-    ex_style = win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE)
-    new_ex_style = ex_style & ~(win32con.WS_EX_DLGMODALFRAME | win32con.WS_EX_WINDOWEDGE | win32con.WS_EX_CLIENTEDGE | win32con.WS_EX_STATICEDGE)
-    win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE, new_ex_style)
+        original_exstyle = win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE)
+        new_ex_style = original_exstyle & ~(
+            win32con.WS_EX_DLGMODALFRAME |
+            win32con.WS_EX_WINDOWEDGE |
+            win32con.WS_EX_CLIENTEDGE |
+            win32con.WS_EX_STATICEDGE
+        )
 
-    SCREEN_WIDTH = user32.GetSystemMetrics(0)
-    SCREEN_HEIGHT = user32.GetSystemMetrics(1)
+        win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE, new_ex_style)
+        confirmed_exstyle = win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE)
 
-    X_POS = (SCREEN_WIDTH - TARGET_WIDTH) // 2
-    Y_POS = 0
+        logging.debug(f"Original style: {original_style}, New style: {confirmed_style}")
+        logging.debug(f"Original ex_style: {original_exstyle}, New ex_style: {confirmed_exstyle}")
 
-    win32gui.SetWindowPos(hwnd, None, X_POS, Y_POS, TARGET_WIDTH, TARGET_HEIGHT,
-                          win32con.SWP_FRAMECHANGED | win32con.SWP_NOZORDER | win32con.SWP_SHOWWINDOW)
+        if confirmed_style != new_style or confirmed_exstyle != new_ex_style:
+            logging.warning(f"⚠️ Style change may not have been applied properly to hwnd: {hwnd}")
+            status_label.config(text="⚠️ Borderless mode may not have been fully applied.")
+        else:
+            logging.info("✅ Style changes confirmed.")
+    
+        SCREEN_WIDTH = user32.GetSystemMetrics(0)
+        SCREEN_HEIGHT = user32.GetSystemMetrics(1)
 
-    status_label.config(text=f"🚀 Applied borderless mode to {game_var.get()}!")
+        X_POS = (SCREEN_WIDTH - TARGET_WIDTH) // 2
+        Y_POS = 0
+
+        win32gui.SetWindowPos(
+            hwnd, None, X_POS, Y_POS, TARGET_WIDTH, TARGET_HEIGHT,
+            win32con.SWP_FRAMECHANGED | win32con.SWP_NOZORDER | win32con.SWP_SHOWWINDOW
+        )
+
+        logging.info(f"Window repositioned to X: {X_POS}, Y: {Y_POS}, Width: {TARGET_WIDTH}, Height: {TARGET_HEIGHT}")
+        status_label.config(text=f"🚀 Applied borderless mode to {game_var.get()}!")
+
+    except Exception as e:
+        logging.exception("❌ Failed to apply borderless mode due to an error.")
+        status_label.config(text="❌ An unexpected error occurred!")
 
 def start_borderless():
     """Fetch selected game from dropdown and apply borderless mode."""
     selected_game = game_var.get()
+    logging.info(f"Selected game: {selected_game}")
     if not selected_game:
         status_label.config(text="❌ No game selected!")
         return
@@ -85,6 +133,7 @@ def start_borderless():
 
 def refresh_list():
     """Refresh the dropdown list with active applications."""
+    logging.info("Refreshing application list...")
     global app_dict
     app_dict = {title: process for title, process, hwnd in list_running_apps()}  # Update process list
     game_dropdown["values"] = list(app_dict.keys())  # Update dropdown options
@@ -117,7 +166,9 @@ game_dropdown = ttk.Combobox(frame, textvariable=game_var, values=list(app_dict.
 game_dropdown.pack(pady=(0, 8))
 
 # Refresh list button
-refresh_button = tk.Button(frame, text="Refresh List", command=refresh_list, font=("Arial", 9, "bold"), bg="#2980b9", fg="white", relief="raised", padx=8, pady=4)
+refresh_button = tk.Button(
+    frame, text="Refresh List", command=refresh_list, font=("Arial", 9, "bold"), bg="#2980b9", fg="white", relief="raised", padx=8, pady=4
+)
 refresh_button.pack(pady=5)
 
 # Apply button

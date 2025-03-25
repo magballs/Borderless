@@ -1,0 +1,113 @@
+2025-03-25 15:40:05,470 [INFO] Scanning for applications...
+2025-03-25 15:40:05,471 [INFO] Found 8 unique applications.
+2025-03-25 15:40:11,053 [INFO] Refreshing application list...
+2025-03-25 15:40:11,054 [INFO] Scanning for applications...
+2025-03-25 15:40:11,054 [INFO] Found 9 unique applications.
+2025-03-25 15:41:05,281 [INFO] Scanning for applications...
+2025-03-25 15:41:05,282 [INFO] Found 8 unique applications.
+2025-03-25 15:42:16,422 [INFO] Refreshing application list...
+2025-03-25 15:42:16,422 [INFO] Scanning for applications...
+2025-03-25 15:42:16,423 [INFO] Found 10 unique applications.
+2025-03-25 15:42:18,732 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:18,732 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:18,732 [INFO] Scanning for applications...
+2025-03-25 15:42:18,733 [INFO] Found 10 unique applications.
+2025-03-25 15:42:18,733 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:18,733 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:18,754 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:18,804 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:20,073 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:20,073 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:20,073 [INFO] Scanning for applications...
+2025-03-25 15:42:20,077 [INFO] Found 10 unique applications.
+2025-03-25 15:42:20,077 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:20,077 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:20,625 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:20,673 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:21,509 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:21,509 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:21,509 [INFO] Scanning for applications...
+2025-03-25 15:42:21,510 [INFO] Found 10 unique applications.
+2025-03-25 15:42:21,510 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:21,510 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:21,535 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:21,594 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:22,485 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:22,486 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:22,486 [INFO] Scanning for applications...
+2025-03-25 15:42:22,486 [INFO] Found 10 unique applications.
+2025-03-25 15:42:22,487 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:22,487 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:23,079 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:23,119 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:24,100 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:24,101 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:24,101 [INFO] Scanning for applications...
+2025-03-25 15:42:24,101 [INFO] Found 10 unique applications.
+2025-03-25 15:42:24,101 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:24,101 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:25,481 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:25,520 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:25,526 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:25,526 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:25,526 [INFO] Scanning for applications...
+2025-03-25 15:42:25,528 [INFO] Found 10 unique applications.
+2025-03-25 15:42:25,528 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:25,528 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:25,570 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:25,621 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:26,893 [INFO] Refreshing application list...
+2025-03-25 15:42:26,894 [INFO] Scanning for applications...
+2025-03-25 15:42:26,894 [INFO] Found 10 unique applications.
+2025-03-25 15:42:27,698 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:27,698 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:27,698 [INFO] Scanning for applications...
+2025-03-25 15:42:27,699 [INFO] Found 10 unique applications.
+2025-03-25 15:42:27,699 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:27,699 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:27,718 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:27,778 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:29,494 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:29,495 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:29,495 [INFO] Scanning for applications...
+2025-03-25 15:42:29,496 [INFO] Found 10 unique applications.
+2025-03-25 15:42:29,496 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:29,496 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:29,523 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:29,589 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:30,474 [INFO] Refreshing application list...
+2025-03-25 15:42:30,474 [INFO] Scanning for applications...
+2025-03-25 15:42:30,475 [INFO] Found 10 unique applications.
+2025-03-25 15:42:31,125 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:31,125 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:31,125 [INFO] Scanning for applications...
+2025-03-25 15:42:31,126 [INFO] Found 10 unique applications.
+2025-03-25 15:42:31,126 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:31,126 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:31,152 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:31,210 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:42:33,395 [INFO] Selected game: EscapeFromTarkov
+2025-03-25 15:42:33,395 [INFO] Looking for window with process name: EscapeFromTarkov.exe
+2025-03-25 15:42:33,395 [INFO] Scanning for applications...
+2025-03-25 15:42:33,396 [INFO] Found 10 unique applications.
+2025-03-25 15:42:33,396 [INFO] Found window handle 11602840 for process 'EscapeFromTarkov.exe'
+2025-03-25 15:42:33,396 [INFO] Attempting to apply borderless mode to hwnd: 11602840
+2025-03-25 15:42:33,425 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:42:33,487 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
+2025-03-25 15:44:13,579 [INFO] Refreshing application list...
+2025-03-25 15:44:13,579 [INFO] Scanning for applications...
+2025-03-25 15:44:13,580 [INFO] Found 11 unique applications.
+2025-03-25 15:44:15,292 [INFO] Refreshing application list...
+2025-03-25 15:44:15,292 [INFO] Scanning for applications...
+2025-03-25 15:44:15,293 [INFO] Found 11 unique applications.
+2025-03-25 15:44:16,693 [INFO] Refreshing application list...
+2025-03-25 15:44:16,694 [INFO] Scanning for applications...
+2025-03-25 15:44:16,694 [INFO] Found 11 unique applications.
+2025-03-25 15:44:18,532 [INFO] Selected game: Dark and Darker
+2025-03-25 15:44:18,533 [INFO] Looking for window with process name: DungeonCrawler.exe
+2025-03-25 15:44:18,533 [INFO] Scanning for applications...
+2025-03-25 15:44:18,534 [INFO] Found 11 unique applications.
+2025-03-25 15:44:18,534 [INFO] Found window handle 330708 for process 'DungeonCrawler.exe'
+2025-03-25 15:44:18,534 [INFO] Attempting to apply borderless mode to hwnd: 330708
+2025-03-25 15:44:18,562 [INFO] ✅ Style changes confirmed.
+2025-03-25 15:44:18,594 [INFO] Window repositioned to X: 1280, Y: 0, Width: 2560, Height: 1440
